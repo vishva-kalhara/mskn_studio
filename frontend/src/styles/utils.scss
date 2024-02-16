@@ -1,0 +1,43 @@
+.btn {
+    border: none;
+    background-color: none;
+
+    &:hover {
+        background-color: #6661ffd2;
+    }
+
+    &:focus {
+        background-color: #6661ffd2;
+        outline: none;
+    }
+}
+
+.btn_primary {
+    @extend .btn;
+    background-color: #6561ff;
+    padding: 8px 24px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+.nav {
+    width: 100vw;
+    padding: 24px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+        width: 200px;
+        height: 44px;
+        background-image: url("../assets/MSKNStudio.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .right_div {
+        width: 100px;
+    }
+}
