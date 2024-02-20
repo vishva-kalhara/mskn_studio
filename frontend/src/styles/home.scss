@@ -2,8 +2,33 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    padding: 36px 0;
+    flex-direction: column;
 
     .search_bar {
+        margin: 0 auto;
         display: flex;
+        gap: 10px;
+    }
+
+    .instruction__card {
+        background-color: #fff;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 900px;
+        color: #1e1e1ebd;
+        margin: 36px auto 0 auto;
+        padding: 18px 24px;
+        text-align: end;
+        // direction: rtl;
+
+        div:first-child {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        div:last-child {
+            margin-top: 16px;
+        }
     }
 }
