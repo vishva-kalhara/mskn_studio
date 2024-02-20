@@ -2,7 +2,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    padding: 36px 0;
+    padding: 36px 0 0 0;
     flex-direction: column;
     box-sizing: border-box;
     margin: 0;
@@ -31,6 +31,66 @@
         }
         div:last-child {
             margin-top: 16px;
+        }
+    }
+
+    .sub__heading {
+        margin: 56px auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0 36px;
+    }
+}
+
+.section__2 {
+    width: 100vw;
+    background-color: #fff;
+    padding: 36px;
+
+    .sub__heading {
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.card {
+    &__shop {
+        background-color: #fff;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        box-sizing: border-box;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            max-height: 176px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .shop_content {
+            padding: 24px;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+
+            .shopName {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .shopRating {
+                // display: flex;
+                // justify-content: left;
+
+                img {
+                    height: 16px;
+                }
+            }
         }
     }
 }

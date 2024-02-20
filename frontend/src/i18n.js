@@ -26,6 +26,11 @@ i18n.use(LanguageDetector)
                         line5: "5. Taking the building structure into account: In the case of reinforced construction, the structural design of the building must be considered and the external and internal loads and forces must be properly directed.",
                         final: "These tips constitute good starting points for designing a successful armed house architectural plan.",
                     },
+                    subHeading1: `Hire professionals and specialists in the field
+                    Help you avoid mistakes and ensure the success of building your home`,
+                    shopHeading: "Here is a group of specialists",
+                    shopName: "the shop",
+                    technitionName: "Technician",
                 },
             },
             ar: {
@@ -43,6 +48,11 @@ i18n.use(LanguageDetector)
                         line5: "5. أخذ بنية المبنى في الاعتبار:في حالة البناء المسلح، يجب النظر في التصميم الهيكلي للمبنى وتوجيه الأعباءوالقوى الخارجية والداخلية بشكل صحيح.",
                         final: "هذه النصائح تشكل نقاط البدايةالجيدة لتصميم مخطط معماري لمنزل مسلح ناجح.",
                     },
+                    subHeading1: `الاستعانة بمحترفين ومتخصصين في المجال
+                    تساعدك على تجنب الأخطاء وضمان نجاح بناء منزلك`,
+                    shopHeading: "هنا مجموعة منالمختصين",
+                    shopName: "المتجر",
+                    technitionName: "الفنيين",
                 },
             },
         },
