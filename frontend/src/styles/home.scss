@@ -4,6 +4,8 @@
     justify-content: center;
     padding: 36px 0;
     flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
 
     .search_bar {
         margin: 0 auto;

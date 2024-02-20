@@ -22,6 +22,8 @@ function App() {
     useEffect(() => {
         console.log(i18n.dir());
         document.body.style.direction = i18n.dir();
+        document.querySelector(".instruction__card").style.textAlign =
+            i18n.language == "en" ? "left" : "right";
     }, [i18n, i18n.language]);
 
     return (
