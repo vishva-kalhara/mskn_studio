@@ -84,3 +84,10 @@ exports.getQA = async ({ query, params }, res) => {
         });
     }
 };
+
+exports.getAnswers = async (req, res) => {
+    res.status(200).json({
+        status: "fail",
+        error: "touched",
+    });
+};

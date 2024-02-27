@@ -5,6 +5,6 @@ const QARouter = express.Router();
 QARouter.route("/")
     .post(QAController.addNewQA)
     .get(QAController.getAllQuestions);
-// QARouter.route("/:id");
+QARouter.route("/:id").get(QAController.getAnswers);
 
 module.exports = QARouter;
