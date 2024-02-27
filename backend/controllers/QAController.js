@@ -1,10 +1,24 @@
 const { pool } = require("../database");
 
-exports.getAllQA = (req, res) => {
-    res.status(500).json({
-        status: "error",
-        message: "Endpoint is under construction",
-    });
+exports.getAllQuestions = async (req, res) => {
+    try {
+        const [result] = await pool.query(`SELECT * FROM question`);
+
+        if (result.length == 0) {
+            throw new Error("No Questions found!");
+        }
+
+        res.status(200).json({
+            status: "success",
+            count: result.length,
+            body: result,
+        });
+    } catch (err) {
+        res.status(200).json({
+            status: "fail",
+            error: err.message,
+        });
+    }
 };
 
 exports.addNewQA = async ({ body }, res) => {

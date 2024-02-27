@@ -12,9 +12,22 @@ const Nav = ({ handleSelectedLang }) => {
         navigate("/signin"); // Redirects user to "movies" page
     };
 
+    const routeToMyProfle = () => {
+        navigate("/myProfile"); // Redirects user to "movies" page
+    };
+
     return (
         <div className="nav">
-            <div className="right_div"></div>
+            <div className="left_div" style={{ minWidth: 100 }}>
+                {localStorage.getItem("role_id") &&
+                localStorage.getItem("role_id") > 0 ? (
+                    <button className="btn_secondary" onClick={routeToMyProfle}>
+                        My Profile
+                    </button>
+                ) : (
+                    ""
+                )}
+            </div>
             <Link to="/">
                 <div className="logo"></div>
             </Link>

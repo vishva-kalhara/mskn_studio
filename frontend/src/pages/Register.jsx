@@ -3,33 +3,34 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 
-const Signin = () => {
+const Register = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [errorTxt, setError] = useState("");
 
-    const routeToLoginSuccess = () => {
-        navigate("/loginSuccess"); // Redirects user to "movies" page
+    const routeToRegisterSuccess = () => {
+        navigate("/registerSuccess"); // Redirects user to "movies" page
     };
 
-    const onSignIn = async () => {
+    const onRegister = async () => {
         try {
             // Make a GET request using Axios
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}auth/login`,
+                `${import.meta.env.VITE_API_URL}auth/signup`,
                 {
                     email,
                     password,
+                    confirmPassword,
                 }
             );
 
             if (response.data.status == "fail") setError(response.data.message);
             else if (response.data.status == "success") {
-                localStorage.setItem("role_id", response.data.roleId);
-                routeToLoginSuccess();
+                routeToRegisterSuccess();
             }
         } catch (error) {
             console.log(error.message);
@@ -65,7 +66,7 @@ const Signin = () => {
                             marginBottom: 20,
                         }}
                     >
-                        {t("signInToYourAccount")}
+                        {t("createYourAccount")}
                     </h5>
                     <input
                         type="email"
@@ -81,6 +82,13 @@ const Signin = () => {
                         value={password}
                         placeholder={t("password")}
                     />
+                    <input
+                        type="password"
+                        className="txtInput"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
+                        placeholder={t("confirmPassword")}
+                    />
                     {errorTxt ? (
                         <h6 style={{ fontSize: 14, color: "red" }}>
                             {errorTxt}
@@ -91,12 +99,12 @@ const Signin = () => {
                     <button
                         className="btn_primary"
                         onClick={() => {
-                            onSignIn();
+                            onRegister();
                         }}
                     >
-                        {t("signIn")}
+                        {t("signUp")}
                     </button>
-                    <Link to="/signup">
+                    <Link to="/signin">
                         <h6
                             style={{
                                 textAlign: "center",
@@ -104,7 +112,7 @@ const Signin = () => {
                                 marginTop: 16,
                             }}
                         >
-                            {t("dontHaveAnAccount")}
+                            {t("alreadyHaveAnAccount")}
                         </h6>
                     </Link>
                 </div>
@@ -113,4 +121,4 @@ const Signin = () => {
     );
 };
 
-export default Signin;
+export default Register;

@@ -56,7 +56,7 @@ exports.loginUser = async ({ body }, res) => {
         }
 
         const [result2] = await pool.query(
-            `SELECT password FROM user WHERE email='${body.email}'`
+            `SELECT password, role_id FROM user WHERE email='${body.email}'`
         );
 
         const isMatched = await bcrypt.compare(
@@ -69,6 +69,7 @@ exports.loginUser = async ({ body }, res) => {
 
         res.status(200).json({
             status: "success",
+            roleId: result2[0].role_id,
         });
     } catch (error) {
         res.status(200).json({

@@ -36,6 +36,16 @@ i18n.use(LanguageDetector)
                     signInToYourAccount: "Sign in to your Account",
                     email: "Email",
                     password: "Password",
+                    dontHaveAnAccount: "Don't have an Account?",
+
+                    // Sign up
+                    confirmPassword: "Confirm Password",
+                    createYourAccount: "Create Your Account",
+                    signUp: "Sign up",
+                    alreadyHaveAnAccount: "Already have an Account?",
+
+                    // Register Success
+                    accountCreatedSuccess: "Account Created Success!",
                 },
             },
             ar: {
@@ -63,6 +73,16 @@ i18n.use(LanguageDetector)
                     signInToYourAccount: "تسجيل الدخول إلى حسابك",
                     email: "بريد إلكتروني",
                     password: "كلمة المرور",
+                    dontHaveAnAccount: "ليس لديك حساب؟",
+
+                    // Sign up
+                    confirmPassword: "تأكيد كلمة المرور",
+                    createYourAccount: "أنشئ حسابك",
+                    signUp: "اشتراك",
+                    alreadyHaveAnAccount: "هل لديك حساب؟",
+
+                    // Register Success
+                    accountCreatedSuccess: "تم إنشاء الحساب بنجاح!",
                 },
             },
         },

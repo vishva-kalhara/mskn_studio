@@ -13,6 +13,10 @@ import { useTranslation } from "react-i18next";
 import NewQuestion from "./pages/admin/NewQuestion";
 import Signin from "./pages/Signin";
 import LoginSuccess from "./pages/messages/LoginSuccess";
+import Register from "./pages/Register";
+import RegisterSuccess from "./pages/messages/registerSuccess";
+import MyProfile from "./pages/MyProfile";
+import Questions from "./pages/Questions";
 
 function App() {
     const { i18n } = useTranslation();
@@ -38,7 +42,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/NewQuestion" element={<NewQuestion />} />
                 <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Register />} />
+                <Route path="/myProfile" element={<MyProfile />} />
+                <Route path="/questions" element={<Questions />} />
                 <Route path="/loginSuccess" element={<LoginSuccess />} />
+                <Route path="/registerSuccess" element={<RegisterSuccess />} />
             </Routes>
             <Footer />
         </>
