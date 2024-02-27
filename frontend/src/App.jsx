@@ -11,6 +11,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./styles/index.scss";
 import { useTranslation } from "react-i18next";
 import NewQuestion from "./pages/admin/NewQuestion";
+import Signin from "./pages/Signin";
+import LoginSuccess from "./pages/messages/LoginSuccess";
 
 function App() {
     const { i18n } = useTranslation();
@@ -35,6 +37,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/NewQuestion" element={<NewQuestion />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/loginSuccess" element={<LoginSuccess />} />
             </Routes>
             <Footer />
         </>

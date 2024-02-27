@@ -31,6 +31,11 @@ i18n.use(LanguageDetector)
                     shopHeading: "Here is a group of specialists",
                     shopName: "the shop",
                     technitionName: "Technician",
+
+                    // Sign in
+                    signInToYourAccount: "Sign in to your Account",
+                    email: "Email",
+                    password: "Password",
                 },
             },
             ar: {
@@ -53,6 +58,11 @@ i18n.use(LanguageDetector)
                     shopHeading: "هنا مجموعة منالمختصين",
                     shopName: "المتجر",
                     technitionName: "الفنيين",
+
+                    // Sign in
+                    signInToYourAccount: "تسجيل الدخول إلى حسابك",
+                    email: "بريد إلكتروني",
+                    password: "كلمة المرور",
                 },
             },
         },
