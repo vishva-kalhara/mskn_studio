@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./styles/index.scss";
 import { useTranslation } from "react-i18next";
+import NewQuestion from "./pages/admin/NewQuestion";
 
 function App() {
     const { i18n } = useTranslation();
@@ -22,8 +23,10 @@ function App() {
     useEffect(() => {
         console.log(i18n.dir());
         document.body.style.direction = i18n.dir();
-        document.querySelector(".instruction__card").style.textAlign =
-            i18n.language == "en" ? "left" : "right";
+
+        if (document.querySelector(".instruction__card"))
+            document.querySelector(".instruction__card").style.textAlign =
+                i18n.language == "en" ? "left" : "right";
     }, [i18n, i18n.language]);
 
     return (
@@ -31,6 +34,7 @@ function App() {
             <Nav handleSelectedLang={changeLang} />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/NewQuestion" element={<NewQuestion />} />
             </Routes>
             <Footer />
         </>
