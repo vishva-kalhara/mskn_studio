@@ -132,7 +132,7 @@ exports.addAnswerToExistingQ = async (req, res) => {
 
         res.status(200).json({
             status: "success",
-            body,
+            output: result2,
         });
     } catch (err) {
         res.status(200).json({

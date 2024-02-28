@@ -2,6 +2,7 @@ const express = require("express");
 const QARoutes = require("./routes/QARoutes");
 const authRoutes = require("./routes/authRoutes");
 const cors = require("cors");
+const answerRoutes = require("./routes/answerRoutes");
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
 app.use(`${process.env.BASE_URL}/QA`, QARoutes);
+app.use(`${process.env.BASE_URL}/answer`, answerRoutes);
 app.use(`${process.env.BASE_URL}/auth`, authRoutes);
 
 module.exports = app;
