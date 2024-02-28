@@ -49,3 +49,32 @@ exports.updateAnswer = async ({ body, params }, res) => {
         });
     }
 };
+
+exports.deleteAnswer = async ({ body, params }, res) => {
+    try {
+        if (!params.id)
+            throw new Error(
+                "Try Refreshing the page. (Error: Invalid Answer Id)"
+            );
+
+        const [result] = await pool.query(
+            `DELETE FROM answer  WHERE id='${params.id}'`
+        );
+
+        // if (result.length == 0) {
+        //     throw new Error("No Answer found!");
+        // } else if (result.length > 1) {
+        //     throw new Error("Error: Duplicate Primary Key");
+        // }
+
+        res.status(200).json({
+            status: "success",
+            result,
+        });
+    } catch (err) {
+        res.status(200).json({
+            status: "fail",
+            error: err.message,
+        });
+    }
+};

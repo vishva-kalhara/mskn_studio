@@ -30,6 +30,10 @@ exports.addNewQA = async ({ body }, res) => {
             throw new Error(
                 "Atleast an answer is required in the request body."
             );
+        } else if (body.answer[0] == "" || body.answer[0] == null) {
+            throw new Error(
+                "Atleast an answer is required in the request body."
+            );
         }
 
         // Inserting Question
@@ -48,6 +52,7 @@ exports.addNewQA = async ({ body }, res) => {
         res.status(200).json({
             status: "success",
             body,
+            output: result1,
         });
     } catch (err) {
         res.status(200).json({

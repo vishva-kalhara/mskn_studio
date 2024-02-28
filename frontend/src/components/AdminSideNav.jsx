@@ -80,6 +80,20 @@ const AdminSideNav = () => {
             ) : (
                 ""
             )}
+            {location.pathname == "/newQuestion" ? (
+                <button
+                    className={
+                        location.pathname == "/newQuestion"
+                            ? "btn_primary"
+                            : "btn_secondary"
+                    }
+                    onClick={routeToQuestions}
+                >
+                    New Question
+                </button>
+            ) : (
+                ""
+            )}
         </div>
     );
 };

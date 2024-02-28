@@ -51,6 +51,23 @@ const EditAnswer = () => {
         }
     };
 
+    const deleteAnswer = async () => {
+        try {
+            const response = await axios.delete(
+                `${import.meta.env.VITE_API_URL}answer/${answerId}`
+            );
+            if (response.data.status == "fail") alert(response.data.error);
+            else if (response.data.status == "success") navigate(-1);
+            // console.log(response.data);
+            // Handle the response data
+            setAnswerText(response.data.answer);
+        } catch (error) {
+            // Handle errors
+            // setError(error.message);
+            alert(error.message);
+        }
+    };
+
     useEffect(() => {
         fetchAnswer();
 
@@ -84,7 +101,9 @@ const EditAnswer = () => {
                         value={answerText}
                         placeholder="Add New Answer"
                     />
-                    <button className="btn_secondary">Delete</button>
+                    <button className="btn_secondary" onClick={deleteAnswer}>
+                        Delete
+                    </button>
                     <button className="btn_primary" onClick={patchAnswer}>
                         Update
                     </button>

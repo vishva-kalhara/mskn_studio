@@ -5,7 +5,8 @@ const answerRoutes = express.Router();
 answerRoutes
     .route("/:id")
     .get(answerController.getAnswer)
-    .patch(answerController.updateAnswer); // Get * Questions
+    .patch(answerController.updateAnswer)
+    .delete(answerController.deleteAnswer); // Get * Questions
 
 // Get Answers by name -- Home
 // Get Answers by id

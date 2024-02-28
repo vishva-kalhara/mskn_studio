@@ -58,6 +58,23 @@ const Questions = () => {
                     gap: 10,
                 }}
             >
+                <div
+                    style={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "end",
+                    }}
+                >
+                    <button
+                        className="btn_secondary"
+                        style={{ justifyContent: "start", display: "flex" }}
+                        onClick={() => {
+                            navigate("/newQuestion");
+                        }}
+                    >
+                        New Question
+                    </button>
+                </div>
                 {questions?.body.map((item) => (
                     <button
                         className="btn_secondary"
