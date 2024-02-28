@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import AdminSideNav from "../components/AdminSideNav";
 
 const Questions = () => {
     const navigate = useNavigate();
@@ -38,24 +39,14 @@ const Questions = () => {
         navigate("/questions"); // Redirects user to "movies" page
     };
 
+    const routeToAnswers = (id) => {
+        navigate(`/answers?q=${id}`); // Redirects user to "movies" page
+    };
+
     return (
         <section style={{ display: "flex", minHeight: "60vh" }}>
-            <div
-                style={{
-                    minWidth: 200,
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: 36,
-                    gap: 10,
-                }}
-            >
-                <button className="btn_secondary" onClick={routeToMyProfle}>
-                    My Profile
-                </button>
-                <button className="btn_primary" onClick={routeToQuestions}>
-                    Q & A
-                </button>
-            </div>
+            <AdminSideNav />
+
             <div
                 style={{
                     width: "100%",
@@ -72,6 +63,7 @@ const Questions = () => {
                         className="btn_secondary"
                         style={{ justifyContent: "start", display: "flex" }}
                         key={item.id}
+                        onClick={() => routeToAnswers(item.id)}
                     >
                         {item.question_val}
                     </button>

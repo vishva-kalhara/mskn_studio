@@ -86,8 +86,27 @@ exports.getQA = async ({ query, params }, res) => {
 };
 
 exports.getAnswers = async (req, res) => {
-    res.status(200).json({
-        status: "fail",
-        error: "touched",
-    });
+    try {
+        const [result] = await pool.query(
+            `SELECT * FROM answer WHERE question_id = ${req.params.id}`
+        );
+
+        const [question] = await pool.query(
+            `SELECT question_val FROM question WHERE id=${req.params.id}`
+        );
+
+        if (result.length == 0) throw new Error("Invalid Question");
+
+        res.status(200).json({
+            status: "success",
+            question: question[0].question_val,
+            count: result.length,
+            body: result,
+        });
+    } catch (error) {
+        res.status(200).json({
+            status: "fail",
+            error: error.message,
+        });
+    }
 };

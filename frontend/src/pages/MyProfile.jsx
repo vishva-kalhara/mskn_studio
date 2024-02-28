@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import AdminSideNav from "../components/AdminSideNav";
 
 const MyProfile = () => {
     const navigate = useNavigate();
@@ -14,17 +15,7 @@ const MyProfile = () => {
 
     return (
         <section style={{ display: "flex", minHeight: "60vh" }}>
-            <div
-                style={{
-                    minWidth: 200,
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: 36,
-                    gap: 36,
-                }}
-            >
-                <button className="btn_primary">Q & A</button>
-            </div>
+            <AdminSideNav />
         </section>
     );
 };

@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./styles/index.scss";
 import { useTranslation } from "react-i18next";
-import NewQuestion from "./pages/admin/NewQuestion";
+// import NewQuestion from "./pages/admin/NewQuestion";
 import Signin from "./pages/Signin";
 import LoginSuccess from "./pages/messages/LoginSuccess";
 import Register from "./pages/Register";
@@ -41,7 +41,7 @@ function App() {
             <Nav handleSelectedLang={changeLang} />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/NewQuestion" element={<NewQuestion />} />
+                {/* <Route path="/NewQuestion" element={<NewQuestion />} /> */}
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Register />} />
                 <Route path="/myProfile" element={<MyProfile />} />
