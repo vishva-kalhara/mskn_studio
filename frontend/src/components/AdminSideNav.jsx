@@ -66,6 +66,20 @@ const AdminSideNav = () => {
             ) : (
                 ""
             )}
+            {location.pathname == "/editAnswer" ? (
+                <button
+                    className={
+                        location.pathname == "/editAnswer"
+                            ? "btn_primary"
+                            : "btn_secondary"
+                    }
+                    onClick={routeToQuestions}
+                >
+                    Edit Answer
+                </button>
+            ) : (
+                ""
+            )}
         </div>
     );
 };

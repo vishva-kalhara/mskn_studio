@@ -18,6 +18,7 @@ import RegisterSuccess from "./pages/messages/registerSuccess";
 import MyProfile from "./pages/MyProfile";
 import Questions from "./pages/Questions";
 import Answers from "./pages/Answers";
+import EditAnswer from "./pages/EditAnswer";
 
 function App() {
     const { i18n } = useTranslation();
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/myProfile" element={<MyProfile />} />
                 <Route path="/questions" element={<Questions />} />
                 <Route path="/answers" element={<Answers />} />
+                <Route path="/editAnswer" element={<EditAnswer />} />
                 <Route path="/loginSuccess" element={<LoginSuccess />} />
                 <Route path="/registerSuccess" element={<RegisterSuccess />} />
             </Routes>

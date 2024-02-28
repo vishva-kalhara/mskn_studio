@@ -12,6 +12,7 @@ const Answers = () => {
     const navigate = useNavigate();
 
     const [data, setData] = useState([]);
+    const [newAnswer, setNewAnswer] = useState("");
 
     const questionId = queryParams.get("q");
 
@@ -25,7 +26,7 @@ const Answers = () => {
             if (response.data.status == "fail") navigate("/questions");
 
             setData(response.data);
-            console.log(response.data);
+            // console.log(response.data);
         } catch (error) {
             console.log(error.message);
         }
@@ -42,6 +43,27 @@ const Answers = () => {
         fetchAnswers();
     }, [navigate]);
 
+    const addAnswer = async () => {
+        try {
+            // Make a POST request using Axios
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_URL}QA/${questionId}`,
+                {
+                    answer: newAnswer,
+                }
+            );
+
+            if (response.data.status == "fail") alert(response.data.error);
+
+            // setData(response.data);
+            setNewAnswer("");
+            fetchAnswers();
+            console.log(response.data);
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     return (
         <section style={{ display: "flex", minHeight: "60vh" }}>
             <AdminSideNav />
@@ -49,7 +71,7 @@ const Answers = () => {
                 style={{
                     width: "100%",
                     // backgroundColor: "antiquewhite",
-                    height: 100,
+                    // height: 100,
                     display: "flex",
                     flexDirection: "column",
                     padding: 36,
@@ -64,6 +86,9 @@ const Answers = () => {
                         className="btn_secondary"
                         key={item.id}
                         style={{ justifyContent: "start", display: "flex" }}
+                        onClick={() => {
+                            navigate(`/editAnswer?a=${item.id}`);
+                        }}
                     >
                         {item.answer}
                     </button>
@@ -73,11 +98,13 @@ const Answers = () => {
                         style={{ width: "100%" }}
                         type="email"
                         className="txtInput"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        // value={email}
+                        onChange={(e) => setNewAnswer(e.target.value)}
+                        value={newAnswer}
                         placeholder="Add New Answer"
                     />
-                    <button className="btn_primary">Add</button>
+                    <button className="btn_primary" onClick={addAnswer}>
+                        Add
+                    </button>
                 </div>
             </div>
         </section>

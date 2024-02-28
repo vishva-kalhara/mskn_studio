@@ -110,3 +110,34 @@ exports.getAnswers = async (req, res) => {
         });
     }
 };
+
+exports.addAnswerToExistingQ = async (req, res) => {
+    try {
+        const { body, params } = req;
+        console.log(body);
+        // Validation
+        if (!params.id) {
+            throw new Error(
+                "Try refreshing the page. (Error: Param does not found)"
+            );
+        } else if (!body.answer) {
+            throw new Error("Enter the Answer.");
+        }
+
+        // Inserting Answers
+        const [result2] = await pool.query(
+            // console.log(
+            `INSERT INTO answer (answer, question_id) value ('${body.answer}', ${params.id})`
+        );
+
+        res.status(200).json({
+            status: "success",
+            body,
+        });
+    } catch (err) {
+        res.status(200).json({
+            status: "fail",
+            error: err.message,
+        });
+    }
+};
