@@ -1,23 +1,51 @@
 const { pool } = require("../database");
 
-exports.getAllQuestions = async (req, res) => {
-    try {
-        const [result] = await pool.query(`SELECT * FROM question`);
+exports.getAllQuestions = async ({ query }, res) => {
+    if (query.question) {
+        try {
+            console.log(query);
+            if (!query.question) {
+                throw new Error("Question is required.");
+            }
 
-        if (result.length == 0) {
-            throw new Error("No Questions found!");
+            const [result] = await pool.query(
+                `SELECT * FROM answer WHERE question_id IN (SELECT id FROM question WHERE question_val = '${query.question}')`
+            );
+
+            if (result.length == 0) {
+                throw new Error("No tips found.");
+            }
+
+            res.status(200).json({
+                status: "success",
+                count: result.length,
+                body: result,
+            });
+        } catch (err) {
+            res.status(200).json({
+                status: "fail",
+                error: err.message,
+            });
         }
+    } else {
+        try {
+            const [result] = await pool.query(`SELECT * FROM question`);
 
-        res.status(200).json({
-            status: "success",
-            count: result.length,
-            body: result,
-        });
-    } catch (err) {
-        res.status(200).json({
-            status: "fail",
-            error: err.message,
-        });
+            if (result.length == 0) {
+                throw new Error("No Questions found!");
+            }
+
+            res.status(200).json({
+                status: "success",
+                count: result.length,
+                body: result,
+            });
+        } catch (err) {
+            res.status(200).json({
+                status: "fail",
+                error: err.message,
+            });
+        }
     }
 };
 

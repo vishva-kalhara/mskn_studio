@@ -33,6 +33,7 @@ const Answers = () => {
     };
 
     useEffect(() => {
+        console.log(localStorage.getItem("role_id"));
         if (
             !localStorage.getItem("role_id") ||
             localStorage.getItem("role_id") != 1

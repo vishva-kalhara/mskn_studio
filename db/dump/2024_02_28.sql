@@ -29,7 +29,7 @@ CREATE TABLE `answer` (
   PRIMARY KEY (`id`),
   KEY `fk_answer_question1_idx` (`question_id`),
   CONSTRAINT `fk_answer_question1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `answer` (
 
 LOCK TABLES `answer` WRITE;
 /*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+INSERT INTO `answer` VALUES (24,'answer 101',17),(25,'Changed Answer',17);
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +56,7 @@ CREATE TABLE `question` (
   PRIMARY KEY (`id`),
   KEY `fk_question_visibility1_idx` (`visibility_id`),
   CONSTRAINT `fk_question_visibility1` FOREIGN KEY (`visibility_id`) REFERENCES `visibility` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +65,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` VALUES (17,'question 101',1);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +205,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('admin@gmail.com','$2a$10$NfeZo7JGXjG.HRG7knbd9uoyh9TVsLyg27C4/fb0PEdWvrSAY.i1m',NULL,NULL,NULL,NULL,3,1);
+INSERT INTO `user` VALUES ('admin@gmail.com','$2a$10$NfeZo7JGXjG.HRG7knbd9uoyh9TVsLyg27C4/fb0PEdWvrSAY.i1m',NULL,NULL,NULL,NULL,1,1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-28 21:15:28
+-- Dump completed on 2024-02-28 22:26:43
