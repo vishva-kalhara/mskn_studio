@@ -29,6 +29,7 @@ const Signin = () => {
             if (response.data.status == "fail") setError(response.data.message);
             else if (response.data.status == "success") {
                 localStorage.setItem("role_id", response.data.roleId);
+                localStorage.setItem("email", response.data.email);
                 routeToLoginSuccess();
             }
         } catch (error) {

@@ -75,7 +75,7 @@ const Questions = () => {
                         New Question
                     </button>
                 </div>
-                {questions?.body.map((item) => (
+                {questions?.body?.map((item) => (
                     <button
                         className="btn_secondary"
                         style={{ justifyContent: "start", display: "flex" }}

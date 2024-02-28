@@ -70,6 +70,53 @@ exports.loginUser = async ({ body }, res) => {
         res.status(200).json({
             status: "success",
             roleId: result2[0].role_id,
+            email: body.email,
+        });
+    } catch (error) {
+        res.status(200).json({
+            status: "fail",
+            message: error.message,
+        });
+    }
+};
+
+exports.resetPassword = async ({ body }, res) => {
+    try {
+        if (!body.email) {
+            throw new Error("Email is a required field.");
+        } else if (body.email) {
+            console.log("touched 1");
+            const [result] = await pool.query(
+                `SELECT * FROM user WHERE email='${body.email}';`
+            );
+            console.log(result);
+            console.log(result.length);
+            if (result.length == 0) {
+                console.log("touched");
+                throw new Error(
+                    "Try refreshing the page (Error:Account not found.)"
+                );
+            }
+        }
+        console.log(body.email);
+        if (!body.password) {
+            throw new Error("Password is a required field.");
+        } else if (body.password.length < 6) {
+            throw new Error("Password should include more than 5 characters");
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(body.password, salt);
+        console.log("touched 2");
+
+        const [result2] = await pool.query(
+            `UPDATE user SET password='${hash}' WHERE email='${body.email}';`
+        );
+
+        res.status(200).json({
+            status: "success",
+            result: result2,
+            message: "Password Reset Success.",
         });
     } catch (error) {
         res.status(200).json({
