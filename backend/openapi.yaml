@@ -1,0 +1,185 @@
+openapi: 3.0.0
+info:
+    title: Q&A API
+    description: API for managing questions, answers, and authentication.
+    version: 1.0.0
+servers:
+    - url: http://localhost:3000
+      description: Local development server
+paths:
+    /answers/{id}:
+        get:
+            summary: Get an answer by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the answer
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: Successfully retrieved the answer
+                "404":
+                    description: Answer not found
+        patch:
+            summary: Update an answer by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the answer
+                  schema:
+                      type: string
+            requestBody:
+                description: The updated answer data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                content:
+                                    type: string
+            responses:
+                "200":
+                    description: Successfully updated the answer
+                "404":
+                    description: Answer not found
+        delete:
+            summary: Delete an answer by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the answer
+                  schema:
+                      type: string
+            responses:
+                "204":
+                    description: Successfully deleted the answer
+                "404":
+                    description: Answer not found
+
+    /auth/signup:
+        post:
+            summary: Register a new user
+            requestBody:
+                description: User signup data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                username:
+                                    type: string
+                                password:
+                                    type: string
+            responses:
+                "201":
+                    description: User successfully registered
+
+    /auth/login:
+        post:
+            summary: User login
+            requestBody:
+                description: User login credentials
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                username:
+                                    type: string
+                                password:
+                                    type: string
+            responses:
+                "200":
+                    description: Successfully logged in
+                "401":
+                    description: Unauthorized
+
+    /auth/resetPassword:
+        post:
+            summary: Reset user password
+            requestBody:
+                description: Reset password data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                newPassword:
+                                    type: string
+            responses:
+                "200":
+                    description: Password reset successfully
+
+    /qa:
+        get:
+            summary: Get all questions
+            responses:
+                "200":
+                    description: Successfully retrieved questions
+        post:
+            summary: Add a new question
+            requestBody:
+                description: Question data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                title:
+                                    type: string
+                                description:
+                                    type: string
+            responses:
+                "201":
+                    description: Successfully added the question
+
+    /qa/{id}:
+        get:
+            summary: Get answers to a question by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the question
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: Successfully retrieved answers
+                "404":
+                    description: Question not found
+        post:
+            summary: Add an answer to an existing question
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the question
+                  schema:
+                      type: string
+            requestBody:
+                description: Answer data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                content:
+                                    type: string
+            responses:
+                "201":
+                    description: Successfully added the answer
+                "404":
+                    description: Question not found
