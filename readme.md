@@ -81,3 +81,7 @@ This project offers user authentication, question management, and the ability to
     1. Open "__dir__/frontend/.env" and change "VITE_API_URL" according to API url.
     2. Run "npm i"
     3. To Build the Frontend type "npm run build". All the build files goes into "__dir__/frontend/dist"
+
+# License
+
+Queue Up is an Open Source SaaS. [Licensed as MIT](https://github.com/vishva-kalhara/mskn_studio/blob/master/LICENSE)
