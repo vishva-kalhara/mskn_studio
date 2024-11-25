@@ -84,4 +84,4 @@ This project offers user authentication, question management, and the ability to
 
 # License
 
-Queue Up is an Open Source SaaS. [Licensed as MIT](https://github.com/vishva-kalhara/mskn_studio/blob/master/LICENSE)
+This project is licensed under [Licensed as MIT](https://github.com/vishva-kalhara/mskn_studio/blob/master/LICENSE)
